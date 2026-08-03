@@ -11,6 +11,7 @@ export async function generateMetadata(): Promise<Metadata> {
   const host = headerStore.get("x-forwarded-host") || headerStore.get("host") || "localhost:3000";
   const protocol = headerStore.get("x-forwarded-proto") || (host.startsWith("localhost") ? "http" : "https");
   const metadataBase = new URL(`${protocol}://${host}`);
+  const googleSiteVerification = process.env.GOOGLE_SITE_VERIFICATION?.trim();
 
   return {
     metadataBase,
@@ -32,6 +33,7 @@ export async function generateMetadata(): Promise<Metadata> {
       description: "Every hour. Clearly confirmed.",
       images: ["/og.png"],
     },
+    verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
   };
 }
 

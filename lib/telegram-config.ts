@@ -17,3 +17,8 @@ export function getTelegramConfig() {
 export function getTelegramBotUsername() {
   return process.env.TELEGRAM_BOT_USERNAME?.replace(/^@/, "") || null;
 }
+
+export function getTelegramContactUsername() {
+  const username = process.env.TELEGRAM_CONTACT_USERNAME?.trim().replace(/^@/, "") || "";
+  return /^[A-Za-z][A-Za-z0-9_]{4,31}$/.test(username) ? username : null;
+}

@@ -81,7 +81,7 @@ function ProductPreview({ lang }: { lang: MarketingLanguage }) {
   );
 }
 
-export function MarketingSite({ lang }: { lang: MarketingLanguage }) {
+export function MarketingSite({ lang, telegramContactUrl }: { lang: MarketingLanguage; telegramContactUrl: string | null }) {
   const content = marketingContent[lang];
   const alternate = lang === "en" ? "ar" : "en";
   const problemIcons = [Users, FileCheck2, ShieldCheck];
@@ -119,6 +119,7 @@ export function MarketingSite({ lang }: { lang: MarketingLanguage }) {
               <div className="mt-8 flex flex-col gap-3 sm:flex-row">
                 <Link href="/login?mode=signup" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand-700 px-5 text-sm font-semibold text-white shadow-[0_12px_30px_rgba(17,107,59,.2)] transition hover:-translate-y-0.5 hover:bg-brand-800">{content.hero.primary}<ArrowRight size={17} /></Link>
                 <a href="#workflow" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-stone-200 bg-white px-5 text-sm font-semibold text-stone-700 shadow-sm transition hover:border-stone-300">{content.hero.secondary}</a>
+                {telegramContactUrl ? <a href={telegramContactUrl} target="_blank" rel="noreferrer" aria-label={content.contact.telegramAriaLabel} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-sky-200 bg-sky-50 px-5 text-sm font-semibold text-sky-700 shadow-sm transition hover:border-sky-300 hover:bg-sky-100"><Send size={17} />{content.contact.telegram}</a> : null}
               </div>
               <p className="mt-4 flex items-center gap-2 text-xs text-stone-500"><Check size={14} className="text-brand-700" />{content.hero.note}</p>
             </div>
@@ -236,17 +237,19 @@ export function MarketingSite({ lang }: { lang: MarketingLanguage }) {
         <section className="px-5 pb-8 sm:px-8">
           <div className="mx-auto max-w-[1240px] overflow-hidden rounded-[36px] bg-ink px-6 py-16 text-center text-white sm:px-12 sm:py-20">
             <p className="text-[10px] font-bold uppercase tracking-[.18em] text-brand-300">{content.cta.eyebrow}</p><h2 className="mx-auto mt-5 max-w-3xl text-3xl font-semibold tracking-[-0.045em] sm:text-5xl">{content.cta.title}</h2><p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-stone-300 sm:text-base">{content.cta.body}</p>
-            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/login?mode=signup" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand-400 px-5 text-sm font-semibold text-ink transition hover:bg-brand-300">{content.cta.primary}<ArrowRight size={17} /></Link><Link href="/login" className="inline-flex h-12 items-center justify-center rounded-xl border border-white/15 px-5 text-sm font-semibold text-white transition hover:bg-white/5">{content.cta.secondary}</Link></div>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row"><Link href="/login?mode=signup" className="inline-flex h-12 items-center justify-center gap-2 rounded-xl bg-brand-400 px-5 text-sm font-semibold text-ink transition hover:bg-brand-300">{content.cta.primary}<ArrowRight size={17} /></Link>{telegramContactUrl ? <a href={telegramContactUrl} target="_blank" rel="noreferrer" aria-label={content.contact.telegramAriaLabel} className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-sky-300/40 bg-sky-400/10 px-5 text-sm font-semibold text-sky-100 transition hover:bg-sky-400/20"><Send size={17} />{content.contact.telegram}</a> : null}<Link href="/login" className="inline-flex h-12 items-center justify-center rounded-xl border border-white/15 px-5 text-sm font-semibold text-white transition hover:bg-white/5">{content.cta.secondary}</Link></div>
           </div>
         </section>
       </main>
 
       <footer className="px-5 py-12 sm:px-8">
         <div className="mx-auto flex max-w-[1240px] flex-col gap-8 border-t border-stone-200 pt-8 sm:flex-row sm:items-end sm:justify-between">
-          <div className="text-start"><MarketingBrand lang={lang} /><p className="mt-4 max-w-sm text-sm leading-6 text-stone-500">{content.footer.description}</p></div>
+          <div className="text-start"><MarketingBrand lang={lang} /><p className="mt-4 max-w-sm text-sm leading-6 text-stone-500">{content.footer.description}</p>{telegramContactUrl ? <a href={telegramContactUrl} target="_blank" rel="noreferrer" aria-label={content.contact.telegramAriaLabel} className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-sky-700 transition hover:text-sky-800"><Send size={16} />{content.contact.telegram}</a> : null}</div>
           <div className="text-start text-xs text-stone-500 sm:text-end"><p>{content.footer.location}</p><p className="mt-2">© {new Date().getFullYear()} AmalCrew. {content.footer.copyright}</p></div>
         </div>
       </footer>
+
+      {telegramContactUrl ? <a href={telegramContactUrl} target="_blank" rel="noreferrer" aria-label={content.contact.telegramAriaLabel} className="fixed bottom-5 end-5 z-40 grid size-14 place-items-center rounded-full bg-[#229ED9] text-white shadow-[0_14px_35px_rgba(34,158,217,.35)] transition hover:-translate-y-0.5 hover:bg-[#168dcc] focus:outline-none focus:ring-4 focus:ring-sky-200" title={content.contact.telegram}><Send size={23} /></a> : null}
     </div>
   );
 }

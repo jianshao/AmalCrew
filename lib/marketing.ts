@@ -30,6 +30,7 @@ type MarketingContent = {
   languages: { title: string; body: string; items: string[] };
   faq: { eyebrow: string; title: string; items: Array<{ question: string; answer: string }> };
   cta: { eyebrow: string; title: string; body: string; primary: string; secondary: string };
+  contact: { telegram: string; telegramAriaLabel: string };
   footer: { description: string; product: string; company: string; location: string; copyright: string };
   metadata: { title: string; description: string; ogDescription: string };
 };
@@ -124,6 +125,10 @@ export const marketingContent: Record<MarketingLanguage, MarketingContent> = {
       eyebrow: "Run a cleaner pilot", title: "Start with one site and one crew.",
       body: "Create a workspace, invite your team and see whether confirmed digital timesheets reduce the daily follow-up for your supervisors.",
       primary: "Create workspace", secondary: "Sign in",
+    },
+    contact: {
+      telegram: "Chat with us on Telegram",
+      telegramAriaLabel: "Contact AmalCrew on Telegram",
     },
     footer: {
       description: "Simple workforce time tracking and confirmations for UAE and GCC field teams.", product: "Product", company: "AmalCrew", location: "Dubai · United Arab Emirates", copyright: "All rights reserved.",
@@ -223,6 +228,10 @@ export const marketingContent: Record<MarketingLanguage, MarketingContent> = {
       eyebrow: "ابدأ تجربة أوضح", title: "ابدأ بموقع واحد وفريق واحد.",
       body: "أنشئ مساحة العمل وادعُ فريقك واختبر كيف تقلل سجلات الدوام الرقمية المؤكدة من المتابعة اليومية على المشرفين.",
       primary: "إنشاء مساحة العمل", secondary: "تسجيل الدخول",
+    },
+    contact: {
+      telegram: "تواصل معنا عبر تيليجرام",
+      telegramAriaLabel: "تواصل مع AmalCrew عبر تيليجرام",
     },
     footer: {
       description: "تتبع بسيط لساعات العمل وتأكيداتها لفرق المواقع في الإمارات والخليج.", product: "المنتج", company: "AmalCrew", location: "دبي · الإمارات العربية المتحدة", copyright: "جميع الحقوق محفوظة.",

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { MarketingSite } from "@/components/marketing/marketing-site";
 import { isMarketingLanguage, marketingContent, marketingLanguages } from "@/lib/marketing";
 import { getSiteUrl } from "@/lib/site-url";
+import { getTelegramContactUsername } from "@/lib/telegram-config";
 
 type Props = { params: Promise<{ lang: string }> };
 
@@ -56,6 +57,8 @@ export default async function MarketingPage({ params }: Props) {
   if (!isMarketingLanguage(lang)) notFound();
   const content = marketingContent[lang];
   const siteUrl = getSiteUrl();
+  const telegramContactUsername = getTelegramContactUsername();
+  const telegramContactUrl = telegramContactUsername ? `https://t.me/${telegramContactUsername}` : null;
   const jsonLd = {
     "@context": "https://schema.org",
     "@graph": [
@@ -66,6 +69,7 @@ export default async function MarketingPage({ params }: Props) {
         url: `${siteUrl}/${lang}`,
         logo: `${siteUrl}/og.png`,
         areaServed: ["AE", "SA", "QA", "BH", "KW", "OM"],
+        sameAs: telegramContactUrl ? [telegramContactUrl] : undefined,
       },
       {
         "@type": "WebSite",
@@ -99,7 +103,7 @@ export default async function MarketingPage({ params }: Props) {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd).replace(/</g, "\\u003c") }} />
-      <MarketingSite lang={lang} />
+      <MarketingSite lang={lang} telegramContactUrl={telegramContactUrl} />
     </>
   );
 }

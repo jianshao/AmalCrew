@@ -62,6 +62,11 @@ supervisor decision. Approved workers can submit timesheets directly in the
 bot. Approval, rejection and changed-hours confirmation are delivered by the
 same bot.
 
+To show a human Telegram contact on the English and Arabic marketing pages,
+set `TELEGRAM_CONTACT_USERNAME` to the public username without `@` and
+redeploy. Keep this separate from `TELEGRAM_BOT_USERNAME`: the former is for
+sales/support conversations and the latter runs the worker workflow.
+
 `vercel.json` schedules a daily retry for failed notifications so the project
 can deploy on Vercel Hobby. Approval actions still attempt delivery immediately;
 the scheduled job is only a fallback for pending or failed messages. Vercel sends
@@ -90,6 +95,10 @@ npm run build
 The root URL permanently redirects to `/en`. Set `NEXT_PUBLIC_SITE_URL` to the
 production origin so canonical URLs, hreflang entries, `robots.txt`, the
 sitemap and structured data use the public domain.
+
+For Google Search Console, DNS verification of the custom domain is preferred.
+For URL-prefix verification, set `GOOGLE_SITE_VERIFICATION` to Google's meta-tag
+content value (not the full `<meta>` tag), then redeploy.
 
 ## Vercel Web Analytics
 
