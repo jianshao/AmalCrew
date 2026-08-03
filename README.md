@@ -90,3 +90,29 @@ npm run build
 The root URL permanently redirects to `/en`. Set `NEXT_PUBLIC_SITE_URL` to the
 production origin so canonical URLs, hreflang entries, `robots.txt`, the
 sitemap and structured data use the public domain.
+
+## Vercel Web Analytics
+
+Enable Web Analytics from the Vercel project dashboard, then redeploy. The
+root layout includes `@vercel/analytics`; no additional environment variable is
+required. Before page views are sent, query strings are removed, auth callbacks
+are ignored, and project or worker record IDs are replaced with `[id]`.
+
+Hobby deployments collect anonymous page views only. Custom conversion events
+should be added after moving to a plan that supports them, and must never
+include names, emails, phone numbers, invitation tokens or record IDs.
+
+Pricing CTA arrivals are tracked on Hobby as anonymous virtual page views. In
+the Analytics **Pages** report, use these paths to compare plan interest:
+
+```text
+/conversion/pricing/en/basic
+/conversion/pricing/en/advanced
+/conversion/pricing/en/professional
+/conversion/pricing/ar/basic
+/conversion/pricing/ar/advanced
+/conversion/pricing/ar/professional
+```
+
+These are analytics-only paths; they are not public application routes. A page
+view represents a visitor reaching signup from the corresponding pricing CTA.
