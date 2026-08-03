@@ -29,19 +29,25 @@ type Language = "en" | "ar" | "ur" | "hi";
 
 const copy = {
   en: {
-    language: "Choose your preferred language.",
+    language: "Choose your language.",
     name: "Please enter your full name.",
-    phone: "Share your mobile number or type it below.",
-    trade: "What is your trade or job role? For example: Electrician.",
-    submitted: "Your request was submitted. The project supervisor will review it.",
+    phone: "Tap the button below to share your mobile number.",
+    sharePhone: "Share mobile number",
+    trade: "Tap your trade or job role below.",
+    otherTrade: "Other",
+    tradeCustom: "Type your trade or job role.",
+    submitted: "Done. Your supervisor will review your request.",
     invalidInvite: "This invitation is invalid, expired or has been revoked.",
     alreadyPending: "Your request is already waiting for supervisor approval.",
     alreadyMember: "You are already a member of this project.",
     noMembership: "No active AmalCrew project is connected to this Telegram account.",
     chooseProject: "Choose the project for this timesheet.",
-    workDate: "Enter the work date as YYYY-MM-DD, or send today.",
-    regular: "Enter regular hours, for example 8 or 7.5.",
-    overtime: "Enter overtime hours, or 0 if none.",
+    workDate: "Tap Today, or type another date as YYYY-MM-DD.",
+    today: "Today",
+    regular: "Tap your regular hours, or type another number.",
+    overtime: "Tap overtime hours. Choose 0 if there was no overtime.",
+    regularLabel: "Regular",
+    overtimeLabel: "Overtime",
     confirmSubmission: "Submit this timesheet?",
     timesheetSubmitted: "Timesheet submitted for supervisor approval.",
     duplicateTimesheet: "A timesheet already exists for that project and date.",
@@ -54,33 +60,40 @@ const copy = {
     confirm: "Confirm & submit",
   },
   ar: {
-    language: "اختر لغتك المفضلة.", name: "يرجى إدخال الاسم الكامل.", phone: "شارك رقم هاتفك أو اكتبه أدناه.",
-    trade: "ما هي مهنتك؟ مثال: كهربائي.", submitted: "تم إرسال طلبك وسيقوم مشرف المشروع بمراجعته.",
+    language: "اختر لغتك.", name: "يرجى إدخال الاسم الكامل.", phone: "اضغط الزر أدناه لمشاركة رقم هاتفك.", sharePhone: "مشاركة رقم الهاتف",
+    trade: "اختر مهنتك من الأزرار أدناه.", otherTrade: "أخرى", tradeCustom: "اكتب مهنتك أو دورك الوظيفي.", submitted: "تم. سيراجع المشرف طلبك.",
     invalidInvite: "الدعوة غير صالحة أو منتهية أو ملغاة.", alreadyPending: "طلبك بانتظار موافقة المشرف.", alreadyMember: "أنت عضو بالفعل في هذا المشروع.",
-    noMembership: "لا يوجد مشروع AmalCrew مرتبط بهذا الحساب.", chooseProject: "اختر مشروع سجل الدوام.", workDate: "أدخل التاريخ YYYY-MM-DD أو أرسل today.",
-    regular: "أدخل الساعات العادية، مثال 8 أو 7.5.", overtime: "أدخل ساعات العمل الإضافي أو 0.", confirmSubmission: "إرسال سجل الدوام؟",
+    noMembership: "لا يوجد مشروع AmalCrew مرتبط بهذا الحساب.", chooseProject: "اختر مشروع سجل الدوام.", workDate: "اضغط اليوم، أو اكتب تاريخاً آخر بصيغة YYYY-MM-DD.", today: "اليوم",
+    regular: "اختر ساعات العمل العادية، أو اكتب رقماً آخر.", overtime: "اختر ساعات العمل الإضافي. اختر 0 إذا لم يوجد إضافي.", regularLabel: "عادي", overtimeLabel: "إضافي", confirmSubmission: "إرسال سجل الدوام؟",
     timesheetSubmitted: "تم إرسال سجل الدوام للموافقة.", duplicateTimesheet: "يوجد سجل دوام لهذا المشروع والتاريخ.", invalidValue: "القيمة غير صالحة. حاول مرة أخرى.",
     cancelled: "تم إلغاء الإجراء.", confirmed: "تم تأكيد الساعات. شكراً.", unavailable: "هذا الإجراء لم يعد متاحاً.", submit: "إرسال سجل الدوام", cancel: "إلغاء", confirm: "تأكيد وإرسال",
   },
   ur: {
-    language: "اپنی پسندیدہ زبان منتخب کریں۔", name: "اپنا پورا نام درج کریں۔", phone: "اپنا موبائل نمبر شیئر کریں یا نیچے لکھیں۔",
-    trade: "آپ کا کام کیا ہے؟ مثال: الیکٹریشن۔", submitted: "آپ کی درخواست جمع ہو گئی ہے۔ سپروائزر اس کا جائزہ لے گا۔",
+    language: "اپنی زبان منتخب کریں۔", name: "اپنا پورا نام درج کریں۔", phone: "نیچے بٹن دبا کر اپنا موبائل نمبر شیئر کریں۔", sharePhone: "موبائل نمبر شیئر کریں",
+    trade: "نیچے سے اپنا کام منتخب کریں۔", otherTrade: "دیگر", tradeCustom: "اپنا کام لکھیں۔", submitted: "ہو گیا۔ سپروائزر آپ کی درخواست دیکھے گا۔",
     invalidInvite: "یہ دعوت غلط، ختم یا منسوخ ہو چکی ہے۔", alreadyPending: "آپ کی درخواست منظوری کی منتظر ہے۔", alreadyMember: "آپ پہلے ہی اس پروجیکٹ کے رکن ہیں۔",
-    noMembership: "اس اکاؤنٹ سے کوئی AmalCrew پروجیکٹ منسلک نہیں۔", chooseProject: "ٹائم شیٹ کے لیے پروجیکٹ منتخب کریں۔", workDate: "تاریخ YYYY-MM-DD لکھیں یا today بھیجیں۔",
-    regular: "عام گھنٹے درج کریں، مثال 8 یا 7.5۔", overtime: "اوور ٹائم گھنٹے درج کریں، یا 0۔", confirmSubmission: "ٹائم شیٹ جمع کریں؟",
+    noMembership: "اس اکاؤنٹ سے کوئی AmalCrew پروجیکٹ منسلک نہیں۔", chooseProject: "ٹائم شیٹ کے لیے پروجیکٹ منتخب کریں۔", workDate: "آج دبائیں، یا دوسری تاریخ YYYY-MM-DD میں لکھیں۔", today: "آج",
+    regular: "عام گھنٹے منتخب کریں، یا دوسرا نمبر لکھیں۔", overtime: "اوور ٹائم منتخب کریں۔ اوور ٹائم نہ ہو تو 0 دبائیں۔", regularLabel: "عام", overtimeLabel: "اوور ٹائم", confirmSubmission: "ٹائم شیٹ جمع کریں؟",
     timesheetSubmitted: "ٹائم شیٹ منظوری کے لیے جمع ہو گئی۔", duplicateTimesheet: "اس تاریخ کی ٹائم شیٹ پہلے سے موجود ہے۔", invalidValue: "درست قدر درج کریں۔",
     cancelled: "عمل منسوخ ہو گیا۔", confirmed: "اوقات کی تصدیق ہو گئی۔ شکریہ۔", unavailable: "یہ عمل اب دستیاب نہیں۔", submit: "ٹائم شیٹ جمع کریں", cancel: "منسوخ", confirm: "تصدیق اور جمع",
   },
   hi: {
-    language: "अपनी पसंदीदा भाषा चुनें।", name: "अपना पूरा नाम दर्ज करें।", phone: "अपना मोबाइल नंबर साझा करें या नीचे लिखें।",
-    trade: "आपका काम क्या है? उदाहरण: Electrician.", submitted: "आपका अनुरोध जमा हो गया है। सुपरवाइज़र इसकी समीक्षा करेगा।",
+    language: "अपनी भाषा चुनें।", name: "अपना पूरा नाम दर्ज करें।", phone: "मोबाइल नंबर साझा करने के लिए नीचे बटन दबाएँ।", sharePhone: "मोबाइल नंबर साझा करें",
+    trade: "नीचे अपना काम चुनें।", otherTrade: "अन्य", tradeCustom: "अपना काम लिखें।", submitted: "हो गया। सुपरवाइज़र आपके अनुरोध की समीक्षा करेगा।",
     invalidInvite: "यह आमंत्रण अमान्य, समाप्त या रद्द है।", alreadyPending: "आपका अनुरोध स्वीकृति की प्रतीक्षा में है।", alreadyMember: "आप पहले से इस प्रोजेक्ट के सदस्य हैं।",
-    noMembership: "इस Telegram खाते से कोई AmalCrew प्रोजेक्ट जुड़ा नहीं है।", chooseProject: "टाइमशीट का प्रोजेक्ट चुनें।", workDate: "तारीख YYYY-MM-DD में लिखें या today भेजें।",
-    regular: "नियमित घंटे लिखें, जैसे 8 या 7.5।", overtime: "ओवरटाइम घंटे लिखें, या 0।", confirmSubmission: "टाइमशीट जमा करें?",
+    noMembership: "इस Telegram खाते से कोई AmalCrew प्रोजेक्ट जुड़ा नहीं है।", chooseProject: "टाइमशीट का प्रोजेक्ट चुनें।", workDate: "आज दबाएँ, या दूसरी तारीख YYYY-MM-DD में लिखें।", today: "आज",
+    regular: "नियमित घंटे चुनें, या दूसरा नंबर लिखें।", overtime: "ओवरटाइम चुनें। ओवरटाइम नहीं हो तो 0 दबाएँ।", regularLabel: "नियमित", overtimeLabel: "ओवरटाइम", confirmSubmission: "टाइमशीट जमा करें?",
     timesheetSubmitted: "टाइमशीट स्वीकृति के लिए जमा हुई।", duplicateTimesheet: "इस प्रोजेक्ट और तारीख की टाइमशीट पहले से मौजूद है।", invalidValue: "मान सही नहीं है। फिर प्रयास करें।",
     cancelled: "वर्तमान कार्य रद्द किया गया।", confirmed: "समय की पुष्टि हुई। धन्यवाद।", unavailable: "यह कार्य अब उपलब्ध नहीं है।", submit: "टाइमशीट जमा करें", cancel: "रद्द करें", confirm: "पुष्टि और जमा",
   },
 } satisfies Record<Language, Record<string, string>>;
+
+const tradeOptions = {
+  en: ["General worker", "Mason", "Electrician", "Plumber", "Carpenter", "Painter", "HVAC"],
+  ar: ["عامل عام", "بنّاء", "كهربائي", "سباك", "نجار", "دهّان", "تكييف"],
+  ur: ["عام مزدور", "مستری", "الیکٹریشن", "پلمبر", "بڑھئی", "پینٹر", "اے سی ٹیکنیشن"],
+  hi: ["सामान्य मज़दूर", "मिस्त्री", "इलेक्ट्रीशियन", "प्लंबर", "बढ़ई", "पेंटर", "HVAC"],
+} satisfies Record<Language, string[]>;
 
 function languageOf(value: unknown): Language {
   return value === "ar" || value === "ur" || value === "hi" ? value : "en";
@@ -113,6 +126,32 @@ function dateInTimeZone(timeZone: string) {
   }).formatToParts(new Date());
   const values = Object.fromEntries(parts.map((part) => [part.type, part.value]));
   return `${values.year}-${values.month}-${values.day}`;
+}
+
+function keyboardRows(values: string[], size = 2) {
+  return Array.from({ length: Math.ceil(values.length / size) }, (_, index) =>
+    values.slice(index * size, index * size + size),
+  );
+}
+
+function phoneKeyboard(language: Language) {
+  return {
+    keyboard: [[{ text: copy[language].sharePhone, request_contact: true }]],
+    resize_keyboard: true,
+    one_time_keyboard: true,
+  };
+}
+
+function tradeKeyboard(language: Language) {
+  return {
+    keyboard: keyboardRows([...tradeOptions[language], copy[language].otherTrade]),
+    resize_keyboard: true,
+    one_time_keyboard: true,
+  };
+}
+
+function choiceKeyboard(values: string[]) {
+  return { keyboard: [values], resize_keyboard: true, one_time_keyboard: true };
 }
 
 async function getWorkerLanguage(telegramUserId: string) {
@@ -193,7 +232,7 @@ async function continueJoin(chatId: string, text: string, contactPhone?: string)
       return true;
     }
     await admin.from("telegram_sessions").update({ step: "JOIN_PHONE", data: { ...data, full_name: fullName } }).eq("chat_id", chatId);
-    await sendTelegramMessage(chatId, t.phone, { replyMarkup: { keyboard: [[{ text: "Share mobile number", request_contact: true }]], resize_keyboard: true, one_time_keyboard: true } });
+    await sendTelegramMessage(chatId, t.phone, { replyMarkup: phoneKeyboard(language) });
     return true;
   }
 
@@ -204,11 +243,17 @@ async function continueJoin(chatId: string, text: string, contactPhone?: string)
       return true;
     }
     await admin.from("telegram_sessions").update({ step: "JOIN_TRADE", data: { ...data, phone_number: phone } }).eq("chat_id", chatId);
-    await sendTelegramMessage(chatId, t.trade, { replyMarkup: { remove_keyboard: true } });
+    await sendTelegramMessage(chatId, t.trade, { replyMarkup: tradeKeyboard(language) });
     return true;
   }
 
-  if (session.step === "JOIN_TRADE") {
+  if (session.step === "JOIN_TRADE" && text.trim() === t.otherTrade) {
+    await admin.from("telegram_sessions").update({ step: "JOIN_TRADE_CUSTOM" }).eq("chat_id", chatId);
+    await sendTelegramMessage(chatId, t.tradeCustom, { replyMarkup: { remove_keyboard: true } });
+    return true;
+  }
+
+  if (session.step === "JOIN_TRADE" || session.step === "JOIN_TRADE_CUSTOM") {
     const trade = text.trim();
     if (trade.length < 2 || trade.length > 100 || !session.invite_id || !session.project_id) {
       await sendTelegramMessage(chatId, t.invalidValue);
@@ -238,7 +283,7 @@ async function continueJoin(chatId: string, text: string, contactPhone?: string)
     }, { onConflict: "project_id,telegram_user_id" });
     if (error) throw error;
     await admin.from("telegram_sessions").delete().eq("chat_id", chatId);
-    await sendTelegramMessage(chatId, t.submitted);
+    await sendTelegramMessage(chatId, t.submitted, { replyMarkup: { remove_keyboard: true } });
     return true;
   }
   return true;
@@ -299,7 +344,9 @@ async function startTimesheetSession(chatId: string, telegramUserId: string, wor
     data: { language },
     expires_at: new Date(Date.now() + 60 * 60_000).toISOString(),
   });
-  await sendTelegramMessage(chatId, copy[language].workDate);
+  await sendTelegramMessage(chatId, copy[language].workDate, {
+    replyMarkup: choiceKeyboard([copy[language].today]),
+  });
 }
 
 async function continueTimesheet(chatId: string, text: string) {
@@ -318,28 +365,47 @@ async function continueTimesheet(chatId: string, text: string) {
       ? await admin.from("organizations").select("timezone").eq("id", worker.organization_id).maybeSingle()
       : { data: null };
     const today = dateInTimeZone(organization?.timezone || "Asia/Dubai");
-    const workDate = text.trim().toLowerCase() === "today" ? today : text.trim();
+    const normalizedDate = text.trim().toLocaleLowerCase();
+    const workDate = normalizedDate === "today" || normalizedDate === t.today.toLocaleLowerCase()
+      ? today
+      : text.trim();
     if (!/^\d{4}-\d{2}-\d{2}$/.test(workDate) || Number.isNaN(Date.parse(`${workDate}T00:00:00Z`)) || workDate > today) {
-      await sendTelegramMessage(chatId, t.invalidValue);
+      await sendTelegramMessage(chatId, `${t.invalidValue}\n\n${t.workDate}`, {
+        replyMarkup: choiceKeyboard([t.today]),
+      });
       return true;
     }
     await admin.from("telegram_sessions").update({ step: "TS_REGULAR", data: { ...data, work_date: workDate } }).eq("chat_id", chatId);
-    await sendTelegramMessage(chatId, t.regular);
+    await sendTelegramMessage(chatId, t.regular, {
+      replyMarkup: choiceKeyboard(["8", "9", "10", "12"]),
+    });
     return true;
   }
   if (session.step === "TS_REGULAR") {
     const minutes = parseHours(text);
-    if (minutes === null) { await sendTelegramMessage(chatId, t.invalidValue); return true; }
+    if (minutes === null) {
+      await sendTelegramMessage(chatId, `${t.invalidValue}\n\n${t.regular}`, {
+        replyMarkup: choiceKeyboard(["8", "9", "10", "12"]),
+      });
+      return true;
+    }
     await admin.from("telegram_sessions").update({ step: "TS_OVERTIME", data: { ...data, regular_minutes: minutes } }).eq("chat_id", chatId);
-    await sendTelegramMessage(chatId, t.overtime);
+    await sendTelegramMessage(chatId, t.overtime, {
+      replyMarkup: choiceKeyboard(["0", "1", "2", "3"]),
+    });
     return true;
   }
   if (session.step === "TS_OVERTIME") {
     const minutes = parseHours(text);
-    if (minutes === null || Number(data.regular_minutes) + minutes > 1440) { await sendTelegramMessage(chatId, t.invalidValue); return true; }
+    if (minutes === null || Number(data.regular_minutes) + minutes > 1440) {
+      await sendTelegramMessage(chatId, `${t.invalidValue}\n\n${t.overtime}`, {
+        replyMarkup: choiceKeyboard(["0", "1", "2", "3"]),
+      });
+      return true;
+    }
     const nextData = { ...data, overtime_minutes: minutes };
     await admin.from("telegram_sessions").update({ step: "TS_CONFIRM", data: nextData }).eq("chat_id", chatId);
-    await sendTelegramMessage(chatId, `${t.confirmSubmission}\n\n${data.work_date} · ${Number(data.regular_minutes) / 60}h + ${minutes / 60}h OT`, {
+    await sendTelegramMessage(chatId, `${t.confirmSubmission}\n\n📅 ${data.work_date}\n⏱ ${t.regularLabel}: ${Number(data.regular_minutes) / 60}h\n➕ ${t.overtimeLabel}: ${minutes / 60}h`, {
       replyMarkup: { inline_keyboard: [[{ text: t.confirm, callback_data: "timesheet:save" }, { text: t.cancel, callback_data: "action:cancel" }]] },
     });
     return true;
@@ -400,9 +466,17 @@ async function handleCallback(callback: TelegramCallback) {
     const admin = createAdminClient();
     const { data: session } = await admin.from("telegram_sessions").select("data, step").eq("chat_id", chatId).maybeSingle();
     if (!session || session.step !== "JOIN_LANGUAGE") { await answerTelegramCallback(callback.id, copy[language].unavailable); return; }
-    await admin.from("telegram_sessions").update({ step: "JOIN_NAME", data: { ...objectData(session.data), language } }).eq("chat_id", chatId);
+    const sessionData = objectData(session.data);
+    const suggestedName = typeof sessionData.suggested_name === "string" ? sessionData.suggested_name.trim() : "";
+    const hasUsableName = suggestedName.length >= 2 && suggestedName.length <= 160;
+    await admin.from("telegram_sessions").update({
+      step: hasUsableName ? "JOIN_PHONE" : "JOIN_NAME",
+      data: { ...sessionData, language, ...(hasUsableName ? { full_name: suggestedName } : {}) },
+    }).eq("chat_id", chatId);
     await answerTelegramCallback(callback.id);
-    await sendTelegramMessage(chatId, copy[language].name);
+    await sendTelegramMessage(chatId, hasUsableName ? copy[language].phone : copy[language].name, {
+      replyMarkup: hasUsableName ? phoneKeyboard(language) : { remove_keyboard: true },
+    });
     return;
   }
   if (data === "timesheet:new") {
