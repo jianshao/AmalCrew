@@ -20,11 +20,12 @@ import {
 } from "lucide-react";
 import type { MarketingLanguage } from "@/lib/marketing";
 import { marketingContent } from "@/lib/marketing";
+import { LogoMark } from "@/components/logo-mark";
 
 function MarketingBrand({ lang, inverse = false }: { lang: MarketingLanguage; inverse?: boolean }) {
   return (
     <Link href={`/${lang}`} className="inline-flex items-center gap-2.5" aria-label="AmalCrew home">
-      <span className={`grid size-9 place-items-center rounded-[11px] text-base font-bold ${inverse ? "bg-brand-400 text-ink" : "bg-brand-700 text-white"}`}>A</span>
+      <LogoMark className={inverse ? "ring-1 ring-white/15" : "ring-1 ring-black/5"} />
       <span className={`text-lg font-semibold tracking-[-0.025em] ${inverse ? "text-white" : "text-ink"}`}>AmalCrew</span>
     </Link>
   );
