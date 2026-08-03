@@ -1,6 +1,9 @@
+import type { Metadata } from "next";
 import { Brand } from "@/components/brand";
 import { UpdatePasswordForm } from "./update-password-form";
 import { getI18n } from "@/lib/i18n/server";
+
+export const metadata: Metadata = { title: "Update password", robots: { index: false, follow: false } };
 
 export default async function UpdatePasswordPage() {
   const { t } = await getI18n();

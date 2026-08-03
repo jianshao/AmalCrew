@@ -9,9 +9,9 @@ import { useI18n } from "@/components/locale-provider";
 
 const initialState: AuthState = {};
 
-export function LoginForm({ demoMode }: { demoMode: boolean }) {
+export function LoginForm({ demoMode, initialMode = "login" }: { demoMode: boolean; initialMode?: "login" | "signup" }) {
   const { t } = useI18n();
-  const [mode, setMode] = useState<"login" | "signup" | "forgot">("login");
+  const [mode, setMode] = useState<"login" | "signup" | "forgot">(initialMode);
   const [showPassword, setShowPassword] = useState(false);
   const [state, action, pending] = useActionState(authenticate, initialState);
 

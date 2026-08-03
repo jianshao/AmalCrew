@@ -5,6 +5,9 @@ import { defaultLocale, isLocale, type Locale, localeCookieName } from "@/lib/i1
 import { translate, type TranslationValues } from "@/lib/i18n/translations";
 
 export async function getLocale(): Promise<Locale> {
+  const routeLocale = (await headers()).get("x-amalcrew-route-locale");
+  if (isLocale(routeLocale)) return routeLocale;
+
   const cookieLocale = (await cookies()).get(localeCookieName)?.value;
   if (isLocale(cookieLocale)) return cookieLocale;
 

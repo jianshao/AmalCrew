@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 import { CheckCircle2, Languages, MessageCircleMore } from "lucide-react";
 import { Brand } from "@/components/brand";
@@ -7,9 +8,11 @@ import { isSupabaseConfigured } from "@/lib/supabase/config";
 import { getI18n } from "@/lib/i18n/server";
 
 export const dynamic = "force-dynamic";
+export const metadata: Metadata = { title: "Sign in", robots: { index: false, follow: false } };
 
-export default async function LoginPage() {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ mode?: string }> }) {
   const { t } = await getI18n();
+  const mode = (await searchParams).mode === "signup" ? "signup" : "login";
   if (isSupabaseConfigured && (await getCurrentUser())) redirect("/dashboard");
 
   return (
@@ -57,7 +60,7 @@ export default async function LoginPage() {
           <div className="mb-12 lg:hidden">
             <Brand />
           </div>
-          <LoginForm demoMode={!isSupabaseConfigured} />
+          <LoginForm demoMode={!isSupabaseConfigured} initialMode={mode} />
         </div>
       </section>
     </main>

@@ -62,8 +62,10 @@ supervisor decision. Approved workers can submit timesheets directly in the
 bot. Approval, rejection and changed-hours confirmation are delivered by the
 same bot.
 
-`vercel.json` schedules an hourly retry for failed notifications. Vercel sends
-`CRON_SECRET` as a bearer token; other hosts should call
+`vercel.json` schedules a daily retry for failed notifications so the project
+can deploy on Vercel Hobby. Approval actions still attempt delivery immediately;
+the scheduled job is only a fallback for pending or failed messages. Vercel sends
+`CRON_SECRET` as a bearer token; Vercel Pro or another scheduler can call
 `GET /api/telegram/dispatch` with the same authorization header.
 
 ## Validation
@@ -75,6 +77,8 @@ npm run build
 
 ## Main routes
 
+- `/en` — English marketing site
+- `/ar` — Arabic marketing site
 - `/login`
 - `/dashboard`
 - `/projects`
@@ -82,3 +86,7 @@ npm run build
 - `/timesheets`
 - `/reports`
 - `/settings`
+
+The root URL permanently redirects to `/en`. Set `NEXT_PUBLIC_SITE_URL` to the
+production origin so canonical URLs, hreflang entries, `robots.txt`, the
+sitemap and structured data use the public domain.
