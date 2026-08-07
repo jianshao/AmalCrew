@@ -10,7 +10,8 @@ import { useI18n } from "@/components/locale-provider";
 const initialState: AuthState = {};
 
 export function LoginForm({ demoMode, initialMode = "login" }: { demoMode: boolean; initialMode?: "login" | "signup" }) {
-  const { t } = useI18n();
+  const { locale, t } = useI18n();
+  const legalLanguage = locale === "ar" ? "ar" : "en";
   const [mode, setMode] = useState<"login" | "signup" | "forgot">(initialMode);
   const [showPassword, setShowPassword] = useState(false);
   const [state, action, pending] = useActionState(authenticate, initialState);
@@ -151,7 +152,7 @@ export function LoginForm({ demoMode, initialMode = "login" }: { demoMode: boole
       )}
 
       <p className="mt-7 text-center text-xs leading-5 text-stone-500">
-        {t("By continuing, you agree to AmalCrew's Terms and Privacy Policy.")}
+        {locale === "ar" ? "بالمتابعة، فإنك توافق على " : "By continuing, you agree to the "}<Link href={`/${legalLanguage}/terms`} className="font-semibold text-brand-700 underline-offset-2 hover:underline">{locale === "ar" ? "الشروط" : "Terms"}</Link> {locale === "ar" ? "و" : "and"} <Link href={`/${legalLanguage}/privacy`} className="font-semibold text-brand-700 underline-offset-2 hover:underline">{locale === "ar" ? "سياسة الخصوصية" : "Privacy Policy"}</Link>.
       </p>
     </div>
   );
