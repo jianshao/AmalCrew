@@ -65,6 +65,57 @@ export type Database = {
           },
         ]
       }
+      contact_inquiries: {
+        Row: {
+          company: string | null
+          created_at: string
+          email: string
+          full_name: string
+          id: string
+          message: string
+          notification_error: string | null
+          preferred_language: string
+          referrer: string | null
+          request_type: string
+          source_path: string
+          status: string
+          team_size: string | null
+          telegram_notified_at: string | null
+        }
+        Insert: {
+          company?: string | null
+          created_at?: string
+          email: string
+          full_name: string
+          id?: string
+          message: string
+          notification_error?: string | null
+          preferred_language?: string
+          referrer?: string | null
+          request_type?: string
+          source_path?: string
+          status?: string
+          team_size?: string | null
+          telegram_notified_at?: string | null
+        }
+        Update: {
+          company?: string | null
+          created_at?: string
+          email?: string
+          full_name?: string
+          id?: string
+          message?: string
+          notification_error?: string | null
+          preferred_language?: string
+          referrer?: string | null
+          request_type?: string
+          source_path?: string
+          status?: string
+          team_size?: string | null
+          telegram_notified_at?: string | null
+        }
+        Relationships: []
+      }
       invites: {
         Row: {
           channel: Database["public"]["Enums"]["channel_type"]

@@ -181,6 +181,9 @@ export default function ConstructionTimesheetSoftwareUaePage() {
             <Link href="/en" className="hidden text-sm font-semibold text-stone-600 transition hover:text-ink sm:inline">
               Product overview
             </Link>
+            <Link href="/en/contact" className="hidden text-sm font-semibold text-brand-700 transition hover:text-brand-800 lg:inline">
+              Talk to AmalCrew
+            </Link>
             <Link href="/ar" hrefLang="ar" className="hidden text-sm font-semibold text-stone-600 transition hover:text-ink md:inline">
               العربية
             </Link>
@@ -308,6 +311,8 @@ export default function ConstructionTimesheetSoftwareUaePage() {
       <footer className="px-5 py-12 sm:px-8">
         <div className="mx-auto flex max-w-[1180px] flex-col gap-7 border-t border-stone-200 pt-8 sm:flex-row sm:items-end sm:justify-between"><div><Brand /><p className="mt-4 max-w-sm text-sm leading-6 text-stone-500">Simple workforce time tracking and confirmations for UAE and GCC field teams.</p></div><div className="text-sm text-stone-500 sm:text-end"><Link href="/en" className="font-semibold text-brand-700 transition hover:text-brand-800">AmalCrew product overview</Link><p className="mt-3">Dubai · United Arab Emirates</p><p className="mt-2 text-xs">© {new Date().getFullYear()} AmalCrew. All rights reserved.</p></div></div>
       </footer>
+
+      {telegramContactUrl ? <a href={telegramContactUrl} target="_blank" rel="noreferrer" aria-label="Chat with AmalCrew on Telegram" className="fixed bottom-5 end-5 z-40 inline-flex h-12 items-center gap-2 rounded-full bg-[#229ED9] px-4 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(34,158,217,.35)] transition hover:-translate-y-0.5 hover:bg-[#168dcc] focus:outline-none focus:ring-4 focus:ring-sky-200"><Send size={19} /><span className="hidden sm:inline">Chat on Telegram</span></a> : null}
     </div>
   );
 }

@@ -103,6 +103,7 @@ export function MarketingSite({ lang, telegramContactUrl }: { lang: MarketingLan
           <div className="flex items-center gap-2 sm:gap-3">
             <Link href={`/${alternate}`} hrefLang={alternate} className="inline-flex h-9 items-center gap-1.5 rounded-xl px-2.5 text-xs font-semibold text-stone-600 transition hover:bg-white hover:text-ink"><Languages size={15} />{content.alternateLabel}</Link>
             <Link href="/login" className="hidden text-sm font-semibold text-stone-700 sm:block">{content.nav.signIn}</Link>
+            <Link href={`/${lang}/contact`} className="hidden text-sm font-semibold text-brand-700 transition hover:text-brand-800 lg:block">{lang === "en" ? "Talk to AmalCrew" : "تواصل معنا"}</Link>
             <Link href="/login?mode=signup" className="inline-flex h-10 items-center rounded-xl bg-ink px-3.5 text-xs font-semibold text-white shadow-sm transition hover:bg-brand-800 sm:px-4 sm:text-sm">{content.hero.primary}</Link>
           </div>
         </div>
@@ -250,7 +251,7 @@ export function MarketingSite({ lang, telegramContactUrl }: { lang: MarketingLan
         </div>
       </footer>
 
-      {telegramContactUrl ? <a href={telegramContactUrl} target="_blank" rel="noreferrer" aria-label={content.contact.telegramAriaLabel} className="fixed bottom-5 end-5 z-40 grid size-14 place-items-center rounded-full bg-[#229ED9] text-white shadow-[0_14px_35px_rgba(34,158,217,.35)] transition hover:-translate-y-0.5 hover:bg-[#168dcc] focus:outline-none focus:ring-4 focus:ring-sky-200" title={content.contact.telegram}><Send size={23} /></a> : null}
+      {telegramContactUrl ? <a href={telegramContactUrl} target="_blank" rel="noreferrer" aria-label={content.contact.telegramAriaLabel} className="fixed bottom-5 end-5 z-40 inline-flex h-12 items-center gap-2 rounded-full bg-[#229ED9] px-4 text-sm font-semibold text-white shadow-[0_14px_35px_rgba(34,158,217,.35)] transition hover:-translate-y-0.5 hover:bg-[#168dcc] focus:outline-none focus:ring-4 focus:ring-sky-200" title={content.contact.telegram}><Send size={19} /><span className="hidden sm:inline">{content.contact.telegram}</span></a> : null}
     </div>
   );
 }
