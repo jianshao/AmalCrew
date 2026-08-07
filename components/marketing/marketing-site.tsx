@@ -202,7 +202,7 @@ export function MarketingSite({ lang, telegramContactUrl }: { lang: MarketingLan
                   </div>
                   <p className={`mt-5 min-h-16 text-sm leading-6 ${plan.featured ? "text-stone-300" : "text-stone-600"}`}>{plan.description}</p>
                   <Link
-                    href={`/login?mode=signup&source=pricing&lang=${lang}&plan=${plan.id}`}
+                    href={`/${lang}/contact?plan=${plan.id}`}
                     className={`mt-6 inline-flex h-11 items-center justify-center rounded-xl text-sm font-semibold transition ${plan.featured ? "bg-brand-400 text-ink hover:bg-brand-300" : "bg-brand-700 text-white hover:bg-brand-800"}`}
                   >
                     {plan.cta}

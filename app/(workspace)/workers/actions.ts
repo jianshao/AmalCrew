@@ -9,6 +9,12 @@ function fail(path: string, message: string): never {
   redirect(`${path}?error=${encodeURIComponent(message)}`);
 }
 
+function subscriptionError(message: string) {
+  if (message.includes("ACTIVE_WORKER_LIMIT_REACHED")) return "Your plan's active worker limit has been reached. Contact AmalCrew to upgrade.";
+  if (message.includes("SUBSCRIPTION_NOT_ACTIVE")) return "Your subscription is not active. Contact AmalCrew to continue.";
+  return message;
+}
+
 async function managedWorkspace(path: string) {
   const workspace = await getWorkspaceContext();
   const role = workspace.membership?.role;
@@ -122,7 +128,7 @@ export async function createWorker(formData: FormData) {
     })
     .select("id")
     .single();
-  if (error) fail(path, error.message);
+  if (error) fail(path, subscriptionError(error.message));
 
   await saveAssignmentAndChannel({
     path,
@@ -157,7 +163,7 @@ export async function updateWorker(workerId: string, formData: FormData) {
     })
     .eq("organization_id", organizationId)
     .eq("id", workerId);
-  if (error) fail(path, error.message);
+  if (error) fail(path, subscriptionError(error.message));
 
   await saveAssignmentAndChannel({
     path,

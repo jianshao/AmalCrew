@@ -333,6 +333,18 @@ Object.assign(hi, {
   "Update worker details, current project and preferred messaging channel.": "कर्मचारी विवरण, वर्तमान प्रोजेक्ट और पसंदीदा चैनल अपडेट करें।", "New password": "नया पासवर्ड", "Confirm password": "पासवर्ड की पुष्टि", "Save new password": "नया पासवर्ड सहेजें", "Account security": "खाता सुरक्षा", "Choose a new password": "नया पासवर्ड चुनें", "No help articles match your search. Try a broader phrase.": "आपकी खोज से कोई सहायता लेख मेल नहीं खाता।", "No reportable timesheets for {month}.": "{month} के लिए रिपोर्ट योग्य टाइमशीट नहीं।",
 });
 
+Object.assign(ar, {
+  "Subscription": "الاشتراك", "Pilot": "تجريبي", "Suspended": "موقوف", "Cancelled": "ملغى", "Setting up": "جارٍ الإعداد", "Plan": "الباقة", "Active workers": "العمال النشطون", "Unlimited": "غير محدود", "Current term ends {date}.": "تنتهي الفترة الحالية في {date}.", "Your current plan does not have an end date set.": "لا يوجد تاريخ انتهاء محدد لباقةك الحالية.", "Contact AmalCrew": "تواصل مع AmalCrew", "Your plan is managed by AmalCrew. Contact us to upgrade, renew or discuss your site requirements.": "تُدار باقتك بواسطة AmalCrew. تواصل معنا للترقية أو التجديد أو لمناقشة احتياجات موقعك.", "Your workspace subscription is being prepared. Please contact AmalCrew if this message remains after setup.": "يجري إعداد اشتراك مساحة العمل. تواصل مع AmalCrew إذا استمرت هذه الرسالة بعد الإعداد.",
+});
+
+Object.assign(ur, {
+  "Subscription": "سبسکرپشن", "Pilot": "آزمائشی", "Suspended": "معطل", "Cancelled": "منسوخ", "Setting up": "سیٹ اپ ہو رہا ہے", "Plan": "پلان", "Active workers": "فعال کارکن", "Unlimited": "لامحدود", "Current term ends {date}.": "موجودہ مدت {date} کو ختم ہوتی ہے۔", "Your current plan does not have an end date set.": "آپ کے موجودہ پلان کی اختتامی تاریخ مقرر نہیں ہے۔", "Contact AmalCrew": "AmalCrew سے رابطہ کریں", "Your plan is managed by AmalCrew. Contact us to upgrade, renew or discuss your site requirements.": "آپ کا پلان AmalCrew کے ذریعے منظم ہے۔ اپ گریڈ، تجدید یا سائٹ کی ضروریات پر بات کے لیے رابطہ کریں۔", "Your workspace subscription is being prepared. Please contact AmalCrew if this message remains after setup.": "آپ کے ورک اسپیس کی سبسکرپشن تیار کی جا رہی ہے۔ سیٹ اپ کے بعد بھی یہ پیغام رہے تو AmalCrew سے رابطہ کریں۔",
+});
+
+Object.assign(hi, {
+  "Subscription": "सदस्यता", "Pilot": "पायलट", "Suspended": "निलंबित", "Cancelled": "रद्द", "Setting up": "सेटअप हो रहा है", "Plan": "प्लान", "Active workers": "सक्रिय कर्मचारी", "Unlimited": "असीमित", "Current term ends {date}.": "वर्तमान अवधि {date} को समाप्त होती है।", "Your current plan does not have an end date set.": "आपके वर्तमान प्लान की कोई समाप्ति तिथि नहीं है।", "Contact AmalCrew": "AmalCrew से संपर्क करें", "Your plan is managed by AmalCrew. Contact us to upgrade, renew or discuss your site requirements.": "आपका प्लान AmalCrew द्वारा प्रबंधित है। अपग्रेड, नवीनीकरण या साइट आवश्यकताओं के लिए हमसे संपर्क करें।", "Your workspace subscription is being prepared. Please contact AmalCrew if this message remains after setup.": "आपके वर्कस्पेस की सदस्यता तैयार की जा रही है। सेटअप के बाद भी यह संदेश रहे तो AmalCrew से संपर्क करें।",
+});
+
 export const dictionaries: Record<Locale, Dictionary> = { en: {}, ar, ur, hi };
 
 export function translate(locale: Locale, key: string, values?: TranslationValues) {

@@ -12,6 +12,13 @@ function fail(path: string, message: string): never {
   redirect(`${path}?error=${encodeURIComponent(message)}`);
 }
 
+function subscriptionError(message: string) {
+  if (message.includes("ACTIVE_WORKER_LIMIT_REACHED")) return "Your plan's active worker limit has been reached. Contact AmalCrew to upgrade.";
+  if (message.includes("ACTIVE_PROJECT_LIMIT_REACHED")) return "Your plan's active project limit has been reached. Contact AmalCrew to upgrade.";
+  if (message.includes("SUBSCRIPTION_NOT_ACTIVE")) return "Your subscription is not active. Contact AmalCrew to continue.";
+  return message;
+}
+
 async function managedWorkspace(path: string) {
   const workspace = await getWorkspaceContext();
   const role = workspace.membership?.role;
@@ -64,7 +71,7 @@ export async function createProject(formData: FormData) {
     .single();
 
   if (error) {
-    fail(path, error.code === "23505" ? "That project code is already in use." : error.message);
+    fail(path, error.code === "23505" ? "That project code is already in use." : subscriptionError(error.message));
   }
   revalidatePath("/projects");
   revalidatePath("/dashboard");
@@ -90,7 +97,7 @@ export async function updateProject(projectId: string, formData: FormData) {
     .eq("organization_id", workspace.organization!.id)
     .eq("id", projectId);
 
-  if (error) fail(path, error.code === "23505" ? "That project code is already in use." : error.message);
+  if (error) fail(path, error.code === "23505" ? "That project code is already in use." : subscriptionError(error.message));
   revalidatePath("/projects");
   revalidatePath(path);
   revalidatePath("/dashboard");
@@ -119,7 +126,7 @@ export async function createTelegramInvite(projectId: string) {
     expires_at: new Date(Date.now() + 30 * 24 * 60 * 60_000).toISOString(),
     created_by: workspace.membership!.user_id,
   });
-  if (error) fail(path, error.message);
+  if (error) fail(path, subscriptionError(error.message));
   revalidatePath(path);
   redirect(`${path}?invite=${encodeURIComponent(token)}&success=${encodeURIComponent("Telegram invitation created. It expires in 30 days.")}`);
 }
@@ -139,7 +146,7 @@ async function reviewJoinRequest(projectId: string, requestId: string, decision:
   if (!request || request.status !== "PENDING") fail(path, "This join request is no longer pending.");
   const rpcName = decision === "approve" ? "approve_project_join_request" : "reject_project_join_request";
   const { error } = await supabase.rpc(rpcName, { target_request_id: requestId });
-  if (error) fail(path, error.message);
+  if (error) fail(path, subscriptionError(error.message));
 
   let notificationMessage = decision === "approve" ? "Worker approved and notified on Telegram." : "Request rejected and worker notified on Telegram.";
   try {

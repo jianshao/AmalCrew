@@ -10,9 +10,13 @@ import { getI18n } from "@/lib/i18n/server";
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = { title: "Sign in", robots: { index: false, follow: false } };
 
-export default async function LoginPage({ searchParams }: { searchParams: Promise<{ mode?: string }> }) {
+export default async function LoginPage({ searchParams }: { searchParams: Promise<{ mode?: string; source?: string; plan?: string; lang?: string }> }) {
   const { t } = await getI18n();
-  const mode = (await searchParams).mode === "signup" ? "signup" : "login";
+  const params = await searchParams;
+  const mode = params.mode === "signup" ? "signup" : "login";
+  if (params.source === "pricing" && (params.plan === "basic" || params.plan === "advanced" || params.plan === "professional")) {
+    redirect(`/${params.lang === "ar" ? "ar" : "en"}/contact?plan=${params.plan}`);
+  }
   if (isSupabaseConfigured && (await getCurrentUser())) redirect("/dashboard");
 
   return (

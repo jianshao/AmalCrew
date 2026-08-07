@@ -43,7 +43,7 @@ export const marketingContent: Record<MarketingLanguage, MarketingContent> = {
       eyebrow: "Built for UAE & GCC field teams",
       title: "Site hours, clearly confirmed.",
       body: "Simple construction timesheets and workforce approvals for contractors who need cleaner records—without training every worker on another business app.",
-      primary: "Create your workspace", secondary: "See how it works", note: "Start with one project. No card required during the pilot.",
+      primary: "Start a pilot workspace", secondary: "See how it works", note: "Start with one project. No card required during the pilot.",
     },
     badges: ["Project-based timesheets", "Telegram worker flow", "English & Arabic interface", "CSV-ready records"],
     visual: {
@@ -91,15 +91,15 @@ export const marketingContent: Record<MarketingLanguage, MarketingContent> = {
       monthly: "per month", currencyNote: "USD · billed monthly per organization", popular: "Most popular",
       plans: [
         {
-          id: "basic", name: "Basic", price: 29, description: "For a small contractor moving its first crew away from paper and spreadsheets.", cta: "Start with Basic",
+          id: "basic", name: "Basic", price: 29, description: "For a small contractor moving its first crew away from paper and spreadsheets.", cta: "Request Basic",
           features: ["Up to 15 active workers", "3 active projects", "2 manager accounts", "Telegram timesheet submissions", "Timesheet approval workflow", "English, Arabic, Urdu & Hindi", "CSV exports", "Standard email support"],
         },
         {
-          id: "advanced", name: "Advanced", price: 49, featured: true, description: "For growing teams coordinating several active sites and supervisors.", cta: "Choose Advanced",
+          id: "advanced", name: "Advanced", price: 49, featured: true, description: "For growing teams coordinating several active sites and supervisors.", cta: "Request Advanced",
           features: ["Up to 50 active workers", "10 active projects", "5 manager accounts", "Everything in Basic", "Weekly and monthly reports", "Timesheet disputes and confirmations", "Notification delivery tracking", "Priority email support"],
         },
         {
-          id: "professional", name: "Professional", price: 99, description: "For established field operations that need more sites, managers and oversight.", cta: "Choose Professional",
+          id: "professional", name: "Professional", price: 99, description: "For established field operations that need more sites, managers and oversight.", cta: "Request Professional",
           features: ["Up to 150 active workers", "Unlimited active projects", "15 manager accounts", "Everything in Advanced", "Full approval and audit history", "Multi-site operations reporting", "Priority Telegram notification queue", "Guided workspace onboarding"],
         },
       ],
@@ -124,7 +124,7 @@ export const marketingContent: Record<MarketingLanguage, MarketingContent> = {
     cta: {
       eyebrow: "Run a cleaner pilot", title: "Start with one site and one crew.",
       body: "Create a workspace, invite your team and see whether confirmed digital timesheets reduce the daily follow-up for your supervisors.",
-      primary: "Create workspace", secondary: "Sign in",
+      primary: "Start a pilot workspace", secondary: "Sign in",
     },
     contact: {
       telegram: "Chat with us on Telegram",
@@ -146,7 +146,7 @@ export const marketingContent: Record<MarketingLanguage, MarketingContent> = {
       eyebrow: "مصمم لفرق المواقع في الإمارات والخليج",
       title: "ساعات الموقع، مؤكدة بوضوح.",
       body: "برنامج بسيط لسجلات دوام البناء وموافقات القوى العاملة، للمقاولين الذين يريدون سجلات أدق دون تدريب كل عامل على تطبيق أعمال جديد.",
-      primary: "أنشئ مساحة العمل", secondary: "شاهد طريقة العمل", note: "ابدأ بمشروع واحد. لا تحتاج إلى بطاقة خلال الفترة التجريبية.",
+      primary: "ابدأ مساحة عمل تجريبية", secondary: "شاهد طريقة العمل", note: "ابدأ بمشروع واحد. لا تحتاج إلى بطاقة خلال الفترة التجريبية.",
     },
     badges: ["سجلات حسب المشروع", "تجربة العامل عبر تيليجرام", "واجهة عربية وإنجليزية", "تصدير CSV"],
     visual: {
@@ -194,15 +194,15 @@ export const marketingContent: Record<MarketingLanguage, MarketingContent> = {
       monthly: "شهرياً", currencyNote: "دولار أمريكي · فوترة شهرية لكل مؤسسة", popular: "الأكثر اختياراً",
       plans: [
         {
-          id: "basic", name: "الأساسية", price: 29, description: "للمقاول الصغير الذي ينقل فريقه الأول من الورق والجداول إلى نظام واضح.", cta: "ابدأ بالأساسية",
+          id: "basic", name: "الأساسية", price: 29, description: "للمقاول الصغير الذي ينقل فريقه الأول من الورق والجداول إلى نظام واضح.", cta: "اطلب الأساسية",
           features: ["حتى 15 عاملاً نشطاً", "3 مشاريع نشطة", "حسابان للإدارة", "إرسال الدوام عبر تيليجرام", "مسار موافقة سجلات الدوام", "العربية والإنجليزية والأردية والهندية", "تصدير CSV", "دعم اعتيادي عبر البريد"],
         },
         {
-          id: "advanced", name: "المتقدمة", price: 49, featured: true, description: "للفرق النامية التي تنسق عدة مواقع ومشرفين في الوقت نفسه.", cta: "اختر المتقدمة",
+          id: "advanced", name: "المتقدمة", price: 49, featured: true, description: "للفرق النامية التي تنسق عدة مواقع ومشرفين في الوقت نفسه.", cta: "اطلب المتقدمة",
           features: ["حتى 50 عاملاً نشطاً", "10 مشاريع نشطة", "5 حسابات للإدارة", "كل مزايا الأساسية", "تقارير أسبوعية وشهرية", "النزاعات وتأكيدات العمال", "متابعة تسليم الإشعارات", "دعم أولوية عبر البريد"],
         },
         {
-          id: "professional", name: "الاحترافية", price: 99, description: "للعمليات الميدانية المستقرة التي تحتاج إلى مواقع ومديرين ورقابة أكثر.", cta: "اختر الاحترافية",
+          id: "professional", name: "الاحترافية", price: 99, description: "للعمليات الميدانية المستقرة التي تحتاج إلى مواقع ومديرين ورقابة أكثر.", cta: "اطلب الاحترافية",
           features: ["حتى 150 عاملاً نشطاً", "مشاريع نشطة غير محدودة", "15 حساباً للإدارة", "كل مزايا المتقدمة", "سجل كامل للموافقات والتدقيق", "تقارير العمليات متعددة المواقع", "أولوية في طابور إشعارات تيليجرام", "تهيئة موجهة لمساحة العمل"],
         },
       ],
@@ -227,7 +227,7 @@ export const marketingContent: Record<MarketingLanguage, MarketingContent> = {
     cta: {
       eyebrow: "ابدأ تجربة أوضح", title: "ابدأ بموقع واحد وفريق واحد.",
       body: "أنشئ مساحة العمل وادعُ فريقك واختبر كيف تقلل سجلات الدوام الرقمية المؤكدة من المتابعة اليومية على المشرفين.",
-      primary: "إنشاء مساحة العمل", secondary: "تسجيل الدخول",
+      primary: "ابدأ مساحة عمل تجريبية", secondary: "تسجيل الدخول",
     },
     contact: {
       telegram: "تواصل معنا عبر تيليجرام",

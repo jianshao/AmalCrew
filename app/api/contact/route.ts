@@ -7,6 +7,7 @@ export const runtime = "nodejs";
 
 const requestTypes = new Set(["PRODUCT_QUESTION", "PRICING", "DEMO", "SUPPORT"]);
 const languages = new Set(["en", "ar"]);
+const plans = new Set(["BASIC", "ADVANCED", "PROFESSIONAL"]);
 
 function value(input: unknown, maxLength: number) {
   return typeof input === "string" ? input.trim().slice(0, maxLength) : "";
@@ -48,12 +49,13 @@ export async function POST(request: Request) {
   const company = value(body.company, 160) || null;
   const teamSize = value(body.teamSize, 64) || null;
   const requestType = value(body.requestType, 32) || "PRODUCT_QUESTION";
+  const selectedPlan = value(body.selectedPlan, 32).toUpperCase() || null;
   const preferredLanguage = value(body.preferredLanguage || body.language, 8) || "en";
   const message = value(body.message, 2000);
   const sourcePath = value(body.sourcePath, 200) || "/contact";
   const referrer = value(body.referrer, 500) || null;
 
-  if (fullName.length < 2 || !validEmail(email) || message.length < 10 || !requestTypes.has(requestType) || !languages.has(preferredLanguage)) {
+  if (fullName.length < 2 || !validEmail(email) || message.length < 10 || !requestTypes.has(requestType) || !languages.has(preferredLanguage) || (selectedPlan && !plans.has(selectedPlan))) {
     return Response.json({ error: "Please complete the required fields." }, { status: 400 });
   }
 
@@ -81,6 +83,7 @@ export async function POST(request: Request) {
       company,
       team_size: teamSize,
       request_type: requestType,
+      selected_plan: selectedPlan,
       preferred_language: preferredLanguage,
       message,
       source_path: sourcePath,
@@ -100,6 +103,7 @@ export async function POST(request: Request) {
       company ? `<b>Company:</b> ${escapeHtml(company)}` : null,
       teamSize ? `<b>Active workers:</b> ${escapeHtml(teamSize)}` : null,
       `<b>Request:</b> ${escapeHtml(requestType.replaceAll("_", " "))}`,
+      selectedPlan ? `<b>Selected plan:</b> ${escapeHtml(selectedPlan)}` : null,
       `<b>Reply language:</b> ${escapeHtml(preferredLanguage)}`,
       `<b>Source:</b> ${escapeHtml(sourcePath)}`,
       "",

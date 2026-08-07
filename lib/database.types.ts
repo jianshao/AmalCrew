@@ -77,6 +77,7 @@ export type Database = {
           preferred_language: string
           referrer: string | null
           request_type: string
+          selected_plan: string | null
           source_path: string
           status: string
           team_size: string | null
@@ -93,6 +94,7 @@ export type Database = {
           preferred_language?: string
           referrer?: string | null
           request_type?: string
+          selected_plan?: string | null
           source_path?: string
           status?: string
           team_size?: string | null
@@ -109,6 +111,7 @@ export type Database = {
           preferred_language?: string
           referrer?: string | null
           request_type?: string
+          selected_plan?: string | null
           source_path?: string
           status?: string
           team_size?: string | null
@@ -465,6 +468,59 @@ export type Database = {
             foreignKeyName: "organization_members_organization_id_fkey"
             columns: ["organization_id"]
             isOneToOne: false
+            referencedRelation: "organizations"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      organization_subscriptions: {
+        Row: {
+          active_project_limit: number | null
+          active_worker_limit: number | null
+          created_at: string
+          ends_at: string | null
+          id: string
+          manager_limit: number | null
+          notes: string | null
+          organization_id: string
+          plan: string
+          starts_at: string | null
+          status: string
+          updated_at: string
+        }
+        Insert: {
+          active_project_limit?: number | null
+          active_worker_limit?: number | null
+          created_at?: string
+          ends_at?: string | null
+          id?: string
+          manager_limit?: number | null
+          notes?: string | null
+          organization_id: string
+          plan?: string
+          starts_at?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Update: {
+          active_project_limit?: number | null
+          active_worker_limit?: number | null
+          created_at?: string
+          ends_at?: string | null
+          id?: string
+          manager_limit?: number | null
+          notes?: string | null
+          organization_id?: string
+          plan?: string
+          starts_at?: string | null
+          status?: string
+          updated_at?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "organization_subscriptions_organization_id_fkey"
+            columns: ["organization_id"]
+            isOneToOne: true
             referencedRelation: "organizations"
             referencedColumns: ["id"]
           },
