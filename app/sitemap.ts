@@ -13,5 +13,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     { url: `${siteUrl}/en`, changeFrequency: "weekly", priority: 1, alternates },
     { url: `${siteUrl}/ar`, changeFrequency: "weekly", priority: 1, alternates },
+    {
+      url: `${siteUrl}/en/construction-timesheet-software-uae`,
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
   ];
 }
